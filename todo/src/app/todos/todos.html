@@ -1,1 +1,13 @@
-<p>todos works!</p>
+<ul>
+  @for (todo of todos; track $index) {
+    <li>
+      #{{todo.id}} - {{todo.title}}
+      @if (todo.completed) {
+        <span class="fa-solid fa-check"></span>
+      }@else {
+        <span class="fa-solid fa-xmark"></span>
+      }
+    </li>
+  }
+</ul>
+
