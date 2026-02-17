@@ -15,10 +15,24 @@
 
 <div class="container-fluid shadow-lg mt-3 p-4 w-50 rounded-4">
   @for (todo of todos; track $index) {
-    <div class="row" [ngClass]="getClass(todo)">
-      <mat-checkbox class="mt-2 p-2" (change)="toggleCompleted(todo)">
+    <div class="row d-flex align-items-center mt-1"
+         [ngClass]="getClass(todo)">
+      <div class="col-2 text-center">
+        <mat-checkbox class="mt-2 p-2" (change)="toggleCompleted(todo)" />
+      </div>
+      <div class="col-8">
         <span class="fs-4">#{{ todo.id }} - {{ todo.title }}</span>
-      </mat-checkbox>
+      </div>
+      <div class="col-2 text-center">
+        <button
+          class="fa-solid fa-trash delete"
+          (click)="deleteItem(todo)"
+        ></button>
+      </div>
     </div>
+  }@empty {
+    <p class="text-center fs-4">
+      Perfetto! Hai completato tutte le cose da fare!
+    </p>
   }
 </div>

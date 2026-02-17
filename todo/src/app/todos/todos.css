@@ -6,3 +6,14 @@
 .completed > * span {
   color: white;
 }
+
+.delete {
+  background-color: darkred;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  border: none;
+}
+.fa-solid{
+  width: 2rem;
+}

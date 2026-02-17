@@ -36,7 +36,11 @@ export class Todos {
   getClass(todo: Todo): string {
     return todo.completed ? 'completed' : '';
   }
-
+  deleteItem(todo: Todo): void {
+    this.todos = this.todos.filter(
+      (objetItem: Todo): boolean => objetItem !== todo
+    );
+  }
 
 
 }
