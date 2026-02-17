@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import {Todo} from './Todo';
+import {MatCheckbox} from '@angular/material/checkbox';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-todos',
-  imports: [],
+  imports: [
+    MatCheckbox,
+    NgClass,
+  ],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
@@ -25,4 +30,14 @@ export class Todos {
       completed: false,
     }
   ];
+  toggleCompleted(todo: Todo): void {
+    todo.completed = !todo.completed;
+  }
+  getClass(todo: Todo): string {
+    return todo.completed ? 'completed' : '';
+  }
+
+
+
 }
+

@@ -1,13 +1,24 @@
-<ul>
-  @for (todo of todos; track $index) {
-    <li>
-      #{{todo.id}} - {{todo.title}}
-      @if (todo.completed) {
-        <span class="fa-solid fa-check"></span>
-      }@else {
-        <span class="fa-solid fa-xmark"></span>
-      }
-    </li>
-  }
-</ul>
+<!--<ul>-->
+<!--  @for (todo of todos; track $index) {-->
+<!--    <li>-->
+<!--      #{{todo.id}} - {{todo.title}}-->
+<!--      @if (todo.completed) {-->
+<!--        <span class="fa-solid fa-check"></span>-->
+<!--      }@else {-->
+<!--        <span class="fa-solid fa-xmark"></span>-->
+<!--      }-->
+<!--    </li>-->
+<!--  }-->
 
+<!--</ul>-->
+
+
+<div class="container-fluid shadow-lg mt-3 p-4 w-50 rounded-4">
+  @for (todo of todos; track $index) {
+    <div class="row" [ngClass]="getClass(todo)">
+      <mat-checkbox class="mt-2 p-2" (change)="toggleCompleted(todo)">
+        <span class="fs-4">#{{ todo.id }} - {{ todo.title }}</span>
+      </mat-checkbox>
+    </div>
+  }
+</div>

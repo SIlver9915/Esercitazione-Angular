@@ -1,0 +1,8 @@
+.completed {
+  background-color: green;
+  border-radius: 1rem;
+  transition: .15s ease;
+}
+.completed > * span {
+  color: white;
+}
