@@ -21,9 +21,22 @@
         <mat-checkbox class="mt-2 p-2" (change)="toggleCompleted(todo)" />
       </div>
       <div class="col-8">
+        @if(!todo.isEditing){
         <span class="fs-4">#{{ todo.id }} - {{ todo.title }}</span>
+        } @else {
+          <input
+
+            [(ngModel)]="todo.title"
+            class="form-control fs-5"
+            placeholder="Modifica il todo"
+          />
+        }
       </div>
       <div class="col-2 text-center">
+        <button
+          class="fa-solid fa-file-pen modify"
+          (click)="toggleEdit(todo)"
+        ></button>
         <button
           class="fa-solid fa-trash delete"
           (click)="deleteItem(todo)"
